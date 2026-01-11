@@ -29,16 +29,15 @@ import com.example.textviewproperty.Text
 
 
 @Composable
-@Preview(showSystemUi = true)
 fun imageCard(
-//    painter: Painter,
-//    contentDescription: String,
-//    title:String,
-//    modifier: Modifier = Modifier
+    painter: Painter,
+    contentDescription: String,
+    title:String
 
     ){
     Card(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth(0.5f)
             .padding(20.dp),
         shape = RoundedCornerShape(10.dp),
         elevation = CardDefaults.cardElevation(
@@ -50,8 +49,8 @@ fun imageCard(
             modifier = Modifier.height(200.dp)
         ) {
             Image(
-                painter = painterResource(R.drawable.image),
-                contentDescription = null,
+                painter = painter,
+                contentDescription = contentDescription,
                 contentScale = ContentScale.Crop
             )
 
@@ -78,14 +77,14 @@ fun imageCard(
                                 Color.Transparent,
                                 Color.Black
                             ),
-                            startY = 300f
+                            startY = 200f
                         )
                     )
                 ,
                 contentAlignment = Alignment.BottomStart
             ) {
                 Text(
-                    text="Rassel Hassan You are the best",
+                    text= title,
                     fontSize = 23.sp,
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
